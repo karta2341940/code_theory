@@ -15,8 +15,7 @@ builder.build({
         },
         "win": {
             "icon": path.resolve(__dirname, 'icon.ico'),
-            
-        }
+        },
     },
 })
     .then(

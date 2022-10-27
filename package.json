@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "huffman-code",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Huffman Code",
   "main": "main.js",
   "scripts": {
     "start": "webpack --mode development",
@@ -11,16 +11,7 @@
     "build": "webpack --mode production && node build.js",
     "hosts": "webpack serve --mode development "
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "MX Du",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
