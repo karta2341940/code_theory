@@ -63,15 +63,19 @@ const page = {
             let pi = document.querySelectorAll('.probability-Input');
             let hc = document.querySelectorAll('.code');
             hc.forEach(v => { v.value = '' });
+            // 將所有的readonly property設為true
             for (let j in si) {
                 si[j].readOnly = true;
                 pi[j].readOnly = true;
             }
             for (let i in this.sampleDataV) {
+                // compare all the data set in sampleDataV
                 if (this.sampleDataV[i] === this.selectIndex) {
+                    // copy a new array to inputProbability
                     this.inputProbability = objectCopy(this.sampleDataP[i])
                     this.inputValue = objectCopy(this.selectIndex);
                     if (this.inputValue.length == 0) {
+                        //如果是空陣列就只關閉第一個input欄位的readonly
                         this.inputValue = [];
                         si[0].readOnly = false;
                         pi[0].readOnly = false;
@@ -289,7 +293,7 @@ const page = {
                 return;
             }
 
-            this.huffman(objectCopy(this.table[0]));
+            this.huffman(objectCopy(this.table[0]),radix);
             let hCode = document.querySelectorAll('.code');
             this.inputValue.forEach((v, i) => {
                 // 將符合symbol內容的
@@ -329,8 +333,10 @@ const page = {
          * @return {Array}
          */
         huffman(array = [{ 'value': String(), 'probability': Number(), 'code': Number(), 'parent': Array() }], radix = 2) {
-            // 如果符號數量等於radix 直接送去parsing
-            if (array.length === radix) {
+            console.log("332 radix:",radix)
+
+            // 如果符號數量less or equal than radix 直接送去parsing
+            if (array.length <= radix) {
                 this.parsing(array, radix);
                 return;
             }
@@ -353,7 +359,7 @@ const page = {
             sort(array);
             // 重新排列後將結果推進this.table
             this.table.push(objectCopy(array));
-            console.log("352 array", objectCopy(array))
+            console.log("357 array", objectCopy(array))
             // 判別是否相加到最後了(symbol數只剩radix個)否的話繼續相加
             if (array.length == radix) return this.parsing(array, radix);
             else return this.huffman(array, radix);

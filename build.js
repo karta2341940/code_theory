@@ -6,7 +6,7 @@ builder.build({
 
     projectDir: path.resolve(__dirname),  // 專案路徑 
 
-    win: ['nsis', 'portable'],  // nsis . portable
+    win: ['portable'],  // nsis . portable
     config: {
         "appId": "com.karta2341940.electron.huffman",
         "productName": "Huffman Coing", // 應用程式名稱 ( 顯示在應用程式與功能 )
