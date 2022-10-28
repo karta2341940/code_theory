@@ -34,6 +34,8 @@ const page = {
             Lav: 0,
             entropy: 0,
             selectIndex: 0,
+            readmeClick:false,
+            exampleClick:false,
         }
     },
     async created() {
