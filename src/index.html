@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Huffman Coding</title>
     <script src="./js/vue.global.prod.js"></script>
-    <script src="http://cchandurkar.github.io/Data-Tree/dataTree.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 </head>
 
 <body>
@@ -59,10 +58,9 @@
 
     -----------------------------------------------------------------------分隔線-----------------------------------------------------------------------
             -->
+            <div id="print">
 
-            <canvas>
-                
-            </canvas>
+            </div>
 
             <div class="block" :class="{active:clicked[0]}">
                 <h1 @click="clicked[0]=!clicked[0]">使用說明</h1>
@@ -146,6 +144,3 @@
 
 
 </html>
-<!--
-    https://www.npmjs.com/package/binary-tree-visualizer
--->

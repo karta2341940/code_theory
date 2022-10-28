@@ -1,4 +1,3 @@
-//import { createApp } from "vue/dist/vue.esm-browser.prod";
 const page = {
     data() {
         return {
@@ -36,7 +35,7 @@ const page = {
             selectIndex: 0,
             readmeClick: false,
             exampleClick: false,
-            clicked:[]
+            clicked: []
         }
     },
     async created() {
@@ -459,8 +458,6 @@ function sort(array = [], version = 0) {
         });
     }
 }
-
-
 Vue.createApp(page).mount("#mount-point");
 
 
