@@ -15,6 +15,7 @@
     justify-content: space-between;
 }
 .block{
+    margin: 10px 0px;
     display: block;
     position: inherit;
     padding: 10px 15px;

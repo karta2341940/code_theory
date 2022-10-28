@@ -20,7 +20,7 @@ const page = {
                 [5, 10, 15, 20, 5, 5, 10, 30],
                 [50, 50]
             ],
-            data:'hello',
+            data: 'hello',
             inputValue: [],
             inputProbability: [],
             exampleSetV: ["我", "愛", "小海", "(空格)", "520"], // 示範用的input Value
@@ -34,8 +34,9 @@ const page = {
             Lav: 0,
             entropy: 0,
             selectIndex: 0,
-            readmeClick:false,
-            exampleClick:false,
+            readmeClick: false,
+            exampleClick: false,
+            clicked:[]
         }
     },
     async created() {
@@ -293,7 +294,7 @@ const page = {
                 return;
             }
 
-            this.huffman(objectCopy(this.table[0]),radix);
+            this.huffman(objectCopy(this.table[0]), radix);
             let hCode = document.querySelectorAll('.code');
             this.inputValue.forEach((v, i) => {
                 // 將符合symbol內容的
@@ -333,7 +334,7 @@ const page = {
          * @return {Array}
          */
         huffman(array = [{ 'value': String(), 'probability': Number(), 'code': Number(), 'parent': Array() }], radix = 2) {
-            console.log("332 radix:",radix)
+            console.log("332 radix:", radix)
 
             // 如果符號數量less or equal than radix 直接送去parsing
             if (array.length <= radix) {
