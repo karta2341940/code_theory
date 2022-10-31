@@ -1,6 +1,8 @@
 const page = {
     data() {
         return {
+            errMsg:[],
+            times:{},
             sampleDataV: [
                 '',
                 ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10'],
@@ -51,7 +53,7 @@ const page = {
         }
         else {
             this.inputValue = this.temp
-            //alert("You can only input 10 symbols")
+            this.showErr("You can only input 10 symbols")
             return;
         }
     },
@@ -178,7 +180,7 @@ const page = {
             }
             else {
                 this.inputValue = this.temp
-                //alert("You can only input 10 symbols")
+                this.showErr("You can only input 10 symbols")
             }
 
             this.sw = false;
@@ -200,7 +202,7 @@ const page = {
              * 02 => 2
              */
             if (Number(this.inputProbability[indexNow]) < 0) {
-                //alert("機率不可小於0");
+                this.showErr("機率不可小於0");
                 this.inputProbability[indexNow] = 0;
             }
             /*
@@ -213,7 +215,7 @@ const page = {
             for (let index in this.inputProbability) {
                 value = Number(this.inputProbability[index]);
                 if (Number(temp + value) > 100) {
-                    //alert("機率不可大於100%");
+                    this.showErr("機率不可大於100%");
                     // 如果大於100%則將該值歸零
                     this.inputProbability[index] = 0;
                 }
@@ -250,7 +252,7 @@ const page = {
             // Empty String check
             for (let i = 0; i < notNull; i++) {
                 if (symbolInput[i].value === '') {
-                    //alert(`yOu CaN nOT inPUT eMPTy StrInG`)
+                    this.showErr(`yOu CaN nOT inPUT eMPTy StrInG`)
                     return;
                 }
             }
@@ -261,7 +263,7 @@ const page = {
                 this.inputProbability = [];
                 this.sw = true;
                 this.inputDetect(0);
-                return //alert("Don't input repeat symbol")
+                return this.showErr("Don't input repeat symbol")
             }
 
             // To initialized the table and records array
@@ -274,7 +276,7 @@ const page = {
                     tempP += Number(i);
                 }
                 if (tempP < 100) {
-                    //alert("機率和要等於100%");
+                    this.showErr("機率和要等於100%");
                     return;
                 }
                 else console.log("Data is Ok it can be encode");
@@ -291,11 +293,11 @@ const page = {
                 })
             }
             // 將結果排序
-            sort(this.table[0],1);
+            sort(this.table[0], 1);
             let radix = this.radix;
             if (!radix) radix = 2;
             if (radix > this.inputValue.length) {
-                //alert(`Radix can't bigger than the sum of symbols`)
+                this.showErr(`Radix can't bigger than the sum of symbols`)
                 return;
             }
 
@@ -409,6 +411,20 @@ const page = {
                 }
             });
             return;
+        },
+        /**
+        * Show the Error
+        */
+        showErr(str=""){
+            let tmp ={
+                'msg':str,
+                'id':new Date()
+            }
+            this.errMsg.push(tmp);
+            setTimeout(()=>{
+                let len = this.errMsg.length-1;
+                this.errMsg.pop();
+            },10000)
         }
     },
 }
@@ -464,13 +480,7 @@ function sort(array = [], version = 0) {
         });
     }
 }
-/**
- * Show the Error
- * 
- */
-function showErr(){
 
-}
 Vue.createApp(page).mount("body");
 
 

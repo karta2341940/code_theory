@@ -39,3 +39,22 @@
     text-align: center;
     cursor: pointer;
 }
+.err{
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+    z-index: 10;
+}
+.err .inside{    
+    display: flex;
+    width: 20em;
+    height: 5em;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 176, 176);
+    margin: 10px;
+}
+.err .inside.active{
+    transform: translateX(50px);
+    transition: transform 0.8s;
+}

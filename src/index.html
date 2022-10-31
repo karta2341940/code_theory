@@ -12,6 +12,12 @@
 </head>
 
 <body>
+    <div class="err">
+        <div v-for="i in errMsg" :data-id="i.id" class="inside col-2">
+            Error:{{i.msg}}
+            Id:{{i.id}}
+        </div>
+    </div>
     <div class="container">
         <div class="executeBox1">
             <div class="input-group mb-3">
@@ -54,14 +60,6 @@
                 </h4>
             </div>
         </div>
-        <!--
-
-    -----------------------------------------------------------------------分隔線-----------------------------------------------------------------------
-            -->
-        <div id="print">
-
-        </div>
-
         <div class="block" :class="{active:clicked[0]}">
             <h1 @click="clicked[0]=!clicked[0]">使用說明</h1>
             <div class="block-content">
