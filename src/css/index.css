@@ -54,7 +54,3 @@
     background-color: rgb(255, 176, 176);
     margin: 10px;
 }
-.err .inside.active{
-    transform: translateX(50px);
-    transition: transform 0.8s;
-}

@@ -416,15 +416,10 @@ const page = {
         * Show the Error
         */
         showErr(str=""){
-            let tmp ={
-                'msg':str,
-                'id':new Date()
-            }
-            this.errMsg.push(tmp);
+            this.errMsg.push(str);
             setTimeout(()=>{
-                let len = this.errMsg.length-1;
                 this.errMsg.pop();
-            },10000)
+            },3000)
         }
     },
 }
@@ -481,6 +476,6 @@ function sort(array = [], version = 0) {
     }
 }
 
-Vue.createApp(page).mount("body");
+Vue.createApp(page).mount("#app");
 
 
