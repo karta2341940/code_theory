@@ -8,7 +8,7 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "test": "webpack --mode development --watch",
-    "build": "webpack --mode production && node build.js",
+    "build": "webpack --mode development && node build.js",
     "host": "webpack serve --mode development "
   },
   "author": "MX Du",
